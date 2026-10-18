@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="MaHangType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="DonViTinhType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="gói"/>
+            <xs:enumeration value="hộp"/>
+            <xs:enumeration value="chiếc"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="DS">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="HoaDon"
+                    minOccurs="1" maxOccurs="4">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MaHD"
+                                type="xs:string"/>
+                            <xs:element name="NgayBan"
+                                type="xs:date"/>
+
+                            <xs:element name="LoaiHang"
+                                minOccurs="1" maxOccurs="10">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Hang"
+                                            minOccurs="1"
+                                            maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element
+                                                        name="TenHang"
+                                                        type="xs:string"/>
+                                                    <xs:element
+                                                        name="SoLuong"
+                                                        type="xs:positiveInteger"/>
+                                                    <xs:element
+                                                        name="DonViTinh"
+                                                        type="DonViTinhType"/>
+                                                    <xs:element
+                                                        name="DonGia"
+                                                        type="xs:positiveInteger"/>
+                                                </xs:sequence>
+                                                <xs:attribute
+                                                    name="MaHang"
+                                                    type="MaHangType"
+                                                    use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+
+                                    <xs:attribute name="MaLoai"
+                                        type="xs:string"
+                                        use="required"/>
+                                    <xs:attribute name="TenLoai"
+                                        type="xs:string"
+                                        use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:key name="MaHangDuyNhat">
+            <xs:selector xpath="HoaDon/LoaiHang/Hang"/>
+            <xs:field xpath="@MaHang"/>
+        </xs:key>
+    </xs:element>
+</xs:schema>

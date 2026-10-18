@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="BenhNhan.xsl"?>
+
+<BVDK>
+    <Khoa>
+        <TenKhoa>Ngoại</TenKhoa>
+        <Phong>302</Phong>
+
+        <BenhNhan MasoBN="BN01">
+            <HoTen>Nguyễn Tuấn Anh</HoTen>
+            <DiaChi>Hà Nội</DiaChi>
+            <SoDienThoai>0912345678</SoDienThoai>
+            <GioiTinh>Nam</GioiTinh>
+            <NgayNhapVien>2017-01-01</NgayNhapVien>
+            <NgayDieuTri>2</NgayDieuTri>
+        </BenhNhan>
+
+        <BenhNhan MasoBN="BN02">
+            <HoTen>Trần Thị Lan</HoTen>
+            <DiaChi>Hải Phòng</DiaChi>
+            <SoDienThoai>0923456789</SoDienThoai>
+            <GioiTinh>Nữ</GioiTinh>
+            <NgayNhapVien>2017-01-03</NgayNhapVien>
+            <NgayDieuTri>5</NgayDieuTri>
+        </BenhNhan>
+    </Khoa>
+
+    <Khoa>
+        <TenKhoa>Nội</TenKhoa>
+        <Phong>201</Phong>
+
+        <BenhNhan MasoBN="BN03">
+            <HoTen>Lê Văn Hùng</HoTen>
+            <DiaChi>Nam Định</DiaChi>
+            <SoDienThoai>0934567890</SoDienThoai>
+            <GioiTinh>Nam</GioiTinh>
+            <NgayNhapVien>2017-02-01</NgayNhapVien>
+            <NgayDieuTri>3</NgayDieuTri>
+        </BenhNhan>
+
+        <BenhNhan MasoBN="BN04">
+            <HoTen>Phạm Thị Mai</HoTen>
+            <DiaChi>Hà Nam</DiaChi>
+            <SoDienThoai>0945678901</SoDienThoai>
+            <GioiTinh>Nữ</GioiTinh>
+            <NgayNhapVien>2017-02-05</NgayNhapVien>
+            <NgayDieuTri>4</NgayDieuTri>
+        </BenhNhan>
+    </Khoa>
+</BVDK>

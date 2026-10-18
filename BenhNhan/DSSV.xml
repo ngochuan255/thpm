@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DSSV xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="DSSV.xsd">
+
+    <!-- Sinh vien 1 -->
+    <SinhVien>
+        <MaSV>09121111</MaSV>
+        <HoTen>Nguyễn Việt Đức</HoTen>
+        <NgaySinh>1997-03-05</NgaySinh>
+        <Lop>KTPM5-K9</Lop>
+
+        <MonHoc>
+            <TenMon>Toán</TenMon>
+            <Lan1>5</Lan1>
+            <Lan2>6</Lan2>
+            <CaNam>8</CaNam>
+        </MonHoc>
+
+        <MonHoc>
+            <TenMon>Văn</TenMon>
+            <Lan1>7</Lan1>
+            <Lan2>8</Lan2>
+            <CaNam>4</CaNam>
+        </MonHoc>
+
+        <MonHoc>
+            <TenMon>Ngoại ngữ</TenMon>
+            <Lan1>3</Lan1>
+            <Lan2>5</Lan2>
+            <CaNam>5</CaNam>
+        </MonHoc>
+
+        <MonHoc>
+            <TenMon>Sử</TenMon>
+            <Lan1>2</Lan1>
+            <Lan2>5</Lan2>
+            <CaNam>3</CaNam>
+        </MonHoc>
+
+        <MonHoc>
+            <TenMon>Sinh</TenMon>
+            <Lan1>8</Lan1>
+            <Lan2>8</Lan2>
+            <CaNam>4</CaNam>
+        </MonHoc>
+
+        <TongKet>
+            <Lan1>6</Lan1>
+            <Lan2>7</Lan2>
+            <CaNam>7</CaNam>
+        </TongKet>
+
+        <XepLoaiHocLuc>Trung bình</XepLoaiHocLuc>
+        <XepLoaiHanhKiem>Khá</XepLoaiHanhKiem>
+        <GVCN>Trần Mai Linh</GVCN>
+    </SinhVien>
+
+    <!-- Sinh vien 2 -->
+    <SinhVien>
+        <MaSV>09121112</MaSV>
+        <HoTen>Trần Thị Mai</HoTen>
+        <NgaySinh>1997-08-12</NgaySinh>
+        <Lop>KTPM5-K9</Lop>
+
+        <MonHoc>
+            <TenMon>Toán</TenMon>
+            <Lan1>8</Lan1>
+            <Lan2>9</Lan2>
+            <CaNam>9</CaNam>
+        </MonHoc>
+
+        <MonHoc>
+            <TenMon>Văn</TenMon>
+            <Lan1>7</Lan1>
+            <Lan2>7.5</Lan2>
+            <CaNam>8</CaNam>
+        </MonHoc>
+
+        <MonHoc>
+            <TenMon>Ngoại ngữ</TenMon>
+            <Lan1>9</Lan1>
+            <Lan2>8</Lan2>
+            <CaNam>9</CaNam>
+        </MonHoc>
+
+        <TongKet>
+            <Lan1>8</Lan1>
+            <Lan2>8</Lan2>
+            <CaNam>9</CaNam>
+        </TongKet>
+
+        <XepLoaiHocLuc>Giỏi</XepLoaiHocLuc>
+        <XepLoaiHanhKiem>Giỏi</XepLoaiHanhKiem>
+        <GVCN>Đặng Thị Nhung</GVCN>
+    </SinhVien>
+
+    <!-- Sinh vien 3 -->
+    <SinhVien>
+        <MaSV>09121113</MaSV>
+        <HoTen>Lê Văn Nam</HoTen>
+        <NgaySinh>1997-11-20</NgaySinh>
+        <Lop>KTPM6-K9</Lop>
+
+        <MonHoc>
+            <TenMon>Toán</TenMon>
+            <Lan1>9</Lan1>
+            <Lan2>7</Lan2>
+            <CaNam>7</CaNam>
+        </MonHoc>
+
+        <MonHoc>
+            <TenMon>Văn</TenMon>
+            <Lan1>5</Lan1>
+            <Lan2>6</Lan2>
+            <CaNam>6</CaNam>
+        </MonHoc>
+
+        <MonHoc>
+            <TenMon>Sinh</TenMon>
+            <Lan1>6</Lan1>
+            <Lan2>6</Lan2>
+            <CaNam>6.5</CaNam>
+        </MonHoc>
+
+        <MonHoc>
+            <TenMon>Sử</TenMon>
+            <Lan1>7</Lan1>
+            <Lan2>6</Lan2>
+            <CaNam>7</CaNam>
+        </MonHoc>
+
+        <TongKet>
+            <Lan1>6</Lan1>
+            <Lan2>6.5</Lan2>
+            <CaNam>7</CaNam>
+        </TongKet>
+
+        <XepLoaiHocLuc>Khá</XepLoaiHocLuc>
+        <XepLoaiHanhKiem>Khá</XepLoaiHanhKiem>
+        <GVCN>Trần Mai Linh</GVCN>
+    </SinhVien>
+
+</DSSV>

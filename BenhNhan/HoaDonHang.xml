@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="HoaDonHang.xsd">
+  <HoaDon>
+    <MaHD>HD1</MaHD>
+    <NgayBan>2015-11-09</NgayBan>
+    <LoaiHang MaLoai="A" TenLoai="Điện tử">
+      <Hang MaHang="H1">
+        <TenHang>Ti Vi</TenHang>
+        <SoLuong>60</SoLuong>
+        <DonViTinh>chiếc</DonViTinh>
+        <DonGia>6000000</DonGia>
+      </Hang>
+      <Hang MaHang="H2">
+        <TenHang>Tủ Lạnh</TenHang>
+        <SoLuong>80</SoLuong>
+        <DonViTinh>chiếc</DonViTinh>
+        <DonGia>4200000</DonGia>
+      </Hang>
+      <Hang MaHang="H3">
+        <TenHang>Máy giặt</TenHang>
+        <SoLuong>30</SoLuong>
+        <DonViTinh>chiếc</DonViTinh>
+        <DonGia>5300000</DonGia>
+      </Hang>
+    </LoaiHang>
+    <LoaiHang MaLoai="B" TenLoai="Văn phòng phẩm">
+      <Hang MaHang="H4">
+        <TenHang>Bút bi</TenHang>
+        <SoLuong>100</SoLuong>
+        <DonViTinh>hộp</DonViTinh>
+        <DonGia>75000</DonGia>
+      </Hang>
+      <Hang MaHang="H5">
+        <TenHang>Giấy A4</TenHang>
+        <SoLuong>50</SoLuong>
+        <DonViTinh>gói</DonViTinh>
+        <DonGia>60000</DonGia>
+      </Hang>
+      <Hang MaHang="H6">
+        <TenHang>Bút chì</TenHang>
+        <SoLuong>40</SoLuong>
+        <DonViTinh>hộp</DonViTinh>
+        <DonGia>50000</DonGia>
+      </Hang>
+    </LoaiHang>
+  </HoaDon>
+  <HoaDon>
+    <MaHD>HD2</MaHD>
+    <NgayBan>2015-11-10</NgayBan>
+    <LoaiHang MaLoai="C" TenLoai="Gia dụng">
+      <Hang MaHang="H7">
+        <TenHang>Nồi cơm điện</TenHang>
+        <SoLuong>15</SoLuong>
+        <DonViTinh>chiếc</DonViTinh>
+        <DonGia>1100000</DonGia>
+      </Hang>
+      <Hang MaHang="H8">
+        <TenHang>Ấm siêu tốc</TenHang>
+        <SoLuong>25</SoLuong>
+        <DonViTinh>chiếc</DonViTinh>
+        <DonGia>450000</DonGia>
+      </Hang>
+      <Hang MaHang="H9">
+        <TenHang>Quạt điện</TenHang>
+        <SoLuong>20</SoLuong>
+        <DonViTinh>chiếc</DonViTinh>
+        <DonGia>650000</DonGia>
+      </Hang>
+    </LoaiHang>
+    <LoaiHang MaLoai="D" TenLoai="Thực phẩm">
+      <Hang MaHang="H10">
+        <TenHang>Bánh quy</TenHang>
+        <SoLuong>60</SoLuong>
+        <DonViTinh>hộp</DonViTinh>
+        <DonGia>40000</DonGia>
+      </Hang>
+      <Hang MaHang="H11">
+        <TenHang>Cà phê</TenHang>
+        <SoLuong>45</SoLuong>
+        <DonViTinh>gói</DonViTinh>
+        <DonGia>90000</DonGia>
+      </Hang>
+      <Hang MaHang="H12">
+        <TenHang>Trà túi lọc</TenHang>
+        <SoLuong>35</SoLuong>
+        <DonViTinh>hộp</DonViTinh>
+        <DonGia>55000</DonGia>
+      </Hang>
+    </LoaiHang>
+  </HoaDon>
+</DS>

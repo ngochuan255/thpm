@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- MaSV: dung 8 chu so -->
+    <xs:simpleType name="MaSVType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{8}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Diem tu 0 den 10 -->
+    <xs:simpleType name="DiemType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Xep loai hoc luc va hanh kiem -->
+    <xs:simpleType name="XepLoaiType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Trung bình"/>
+            <xs:enumeration value="Khá"/>
+            <xs:enumeration value="Giỏi"/>
+            <xs:enumeration value="Yếu"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Giao vien chu nhiem -->
+    <xs:simpleType name="GVCNType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Trần Mai Linh"/>
+            <xs:enumeration value="Đặng Thị Nhung"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Bang diem gom 3 cot -->
+    <xs:complexType name="BangDiemType">
+        <xs:sequence>
+            <xs:element name="Lan1" type="DiemType"/>
+            <xs:element name="Lan2" type="DiemType"/>
+            <xs:element name="CaNam" type="DiemType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Phan tu goc -->
+    <xs:element name="DSSV">
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element name="SinhVien"
+                            minOccurs="1"
+                            maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+
+                            <xs:element name="MaSV"
+                                        type="MaSVType"/>
+
+                            <xs:element name="HoTen"
+                                        type="xs:string"/>
+
+                            <xs:element name="NgaySinh"
+                                        type="xs:date"/>
+
+                            <xs:element name="Lop"
+                                        type="xs:string"/>
+
+                            <!-- Tu 3 den 5 mon hoc -->
+                            <xs:element name="MonHoc"
+                                        minOccurs="3"
+                                        maxOccurs="5">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="TenMon"
+                                                    type="xs:string"/>
+                                        <xs:element name="Lan1"
+                                                    type="DiemType"/>
+                                        <xs:element name="Lan2"
+                                                    type="DiemType"/>
+                                        <xs:element name="CaNam"
+                                                    type="DiemType"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Diem tong ket -->
+                            <xs:element name="TongKet"
+                                        type="BangDiemType"/>
+
+                            <xs:element name="XepLoaiHocLuc"
+                                        type="XepLoaiType"/>
+
+                            <xs:element name="XepLoaiHanhKiem"
+                                        type="XepLoaiType"/>
+
+                            <xs:element name="GVCN"
+                                        type="GVCNType"/>
+
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+
+        <!-- Ma sinh vien khong trung nhau -->
+        <xs:unique name="MaSVDuyNhat">
+            <xs:selector xpath="SinhVien"/>
+            <xs:field xpath="MaSV"/>
+        </xs:unique>
+
+    </xs:element>
+</xs:schema>
