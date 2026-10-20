@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="truonghoc.xsl"?>
+<truonghoc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="truonghoc.xsd">
+    <khoa tenkhoa="Công nghệ thông tin">
+        <sinhvien masv="SV01">
+            <hoten>Nguyễn Văn Hùng</hoten>
+            <dienthoai>0981822398</dienthoai>
+            <diem>5</diem>
+        </sinhvien>
+        <sinhvien masv="SV02">
+            <hoten>Trần Thu Hà</hoten>
+            <dienthoai>0965987897</dienthoai>
+            <diem>8</diem>
+        </sinhvien>
+    </khoa>
+
+    <khoa tenkhoa="Kế toán">
+        <sinhvien masv="SV03">
+            <hoten>Lê Minh Anh</hoten>
+            <dienthoai>0912345678</dienthoai>
+            <diem>4.5</diem>
+        </sinhvien>
+        <sinhvien masv="SV04">
+            <hoten>Phạm Quốc Bảo</hoten>
+            <dienthoai>0978123456</dienthoai>
+            <diem>9</diem>
+        </sinhvien>
+    </khoa>
+</truonghoc>

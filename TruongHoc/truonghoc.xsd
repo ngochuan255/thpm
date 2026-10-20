@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="MaSVType">
+        <xs:restriction base="xs:string">
+            <xs:length value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="DienThoaiType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{10}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="DiemType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="truonghoc">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="khoa" minOccurs="2" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="sinhvien" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="hoten" type="xs:string"/>
+                                        <xs:element name="dienthoai" type="DienThoaiType"/>
+                                        <xs:element name="diem" type="DiemType"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="masv" type="MaSVType" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="tenkhoa" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:unique name="MaSVDuyNhat">
+            <xs:selector xpath="khoa/sinhvien"/>
+            <xs:field xpath="@masv"/>
+        </xs:unique>
+    </xs:element>
+
+</xs:schema>
