@@ -1,0 +1,47 @@
+﻿@model Bai_3._2.Models.NhanVien
+
+@{
+    ViewBag.Title = "Thông tin nhân viên đã lưu";
+}
+
+<h2>Thông tin nhân viên đã lưu</h2>
+
+@if (Model == null)
+{
+    <div class="alert alert-info" role="status">
+        Chưa có thông tin nhân viên được lưu. Vui lòng nhập thông tin và bấm LƯU.
+    </div>
+}
+else
+{
+    <table class="table table-bordered table-hover" style="max-width: 600px;">
+        <tbody>
+            <tr>
+                <th scope="row">Mã nhân viên</th>
+                <td>@Model.MaNV</td>
+            </tr>
+            <tr>
+                <th scope="row">Họ tên</th>
+                <td>@Model.HoTen</td>
+            </tr>
+            <tr>
+                <th scope="row">Ngày sinh</th>
+                <td>@(Model.NgaySinh.HasValue ? Model.NgaySinh.Value.ToString("dd/MM/yyyy") : "")</td>
+            </tr>
+            <tr>
+                <th scope="row">Giới tính</th>
+                <td>@Model.GioiTinh</td>
+            </tr>
+            <tr>
+                <th scope="row">Chức vụ</th>
+                <td>@Model.ChucVu</td>
+            </tr>
+            <tr>
+                <th scope="row">Ngoại ngữ</th>
+                <td>@(Model.NgoaiNgu != null && Model.NgoaiNgu.Length > 0 ? string.Join(", ", Model.NgoaiNgu) : "Không có")</td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+@Html.ActionLink("Quay lại nhập thông tin", "Index", "NhapNhanVien", null, new { @class = "btn btn-secondary" })

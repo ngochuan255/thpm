@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th colspan="2" class="text-center">Thông Tin Sinh Viên</th>
+    </tr>
+    <tr>
+        <th>Mã SV</th>
+        <td>@Model.MaSV</td>
+    </tr>
+    <tr>
+        <th>Họ Tên</th>
+        <td>@Model.HoTen </td>
+    </tr>
+    <tr>
+        <th>Ngày sinh</th>
+        <td>@Model.date</td>
+    </tr>
+    <tr>
+        <th>Quê quán</th>
+        <td>@Model.DiaChi</td>
+    </tr>
+</table>

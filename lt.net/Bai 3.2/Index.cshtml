@@ -1,0 +1,134 @@
+﻿
+@model Bai_3._2.Models.NhanVien
+@using System.Linq
+
+@{
+    ViewBag.Title = "Thêm thông tin nhân viên";
+    var ngoaiNgu = Model.NgoaiNgu ?? new string[0];
+}
+
+<style>
+    table.form-table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+        font-family: Arial, sans-serif;
+    }
+
+        table.form-table, table.form-table th, table.form-table td {
+            border: 1px solid #000;
+        }
+
+            table.form-table td {
+                padding: 8px 12px;
+                vertical-align: middle;
+            }
+
+                table.form-table td:first-child {
+                    font-weight: bold;
+                    width: 30%;
+                }
+
+    .form-control-custom {
+        width: 90%;
+        padding: 4px;
+        border: 1px solid #767676;
+    }
+
+    .btn-container {
+        text-align: center;
+        padding: 10px !important;
+    }
+
+    .btn-custom {
+        display: inline-block;
+        text-decoration: none;
+        color: #212529;
+        padding: 6px 20px;
+        margin: 4px 6px;
+        background-color: #b0c4de;
+        border: 1px solid #4682b4;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+        .btn-custom:hover {
+            background-color: #a0b4ce;
+        }
+
+    .radio-group, .checkbox-group {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+</style>
+
+@if (TempData["ThongBao"] != null)
+{
+    <div class="alert alert-success" role="status">@TempData["ThongBao"]</div>
+}
+
+@using (Html.BeginForm("Index", "NhapNhanVien", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false, "Vui lòng kiểm tra lại thông tin đã nhập.", new { @class = "text-danger" })
+    <table class="form-table">
+        <tr>
+            <td>Mã nhân viên:</td>
+            <td>
+                @Html.TextBoxFor(model => model.MaNV, new { @class = "form-control-custom" })
+            </td>
+        </tr>
+        <tr>
+            <td>Họ tên:</td>
+            <td>
+                @Html.TextBoxFor(model => model.HoTen, new { @class = "form-control-custom" })
+            </td>
+        </tr>
+        <tr>
+            <td>Ngày sinh:</td>
+            <td>
+                @Html.TextBoxFor(model => model.NgaySinh, "{0:yyyy-MM-dd}", new { type = "date", @class = "form-control-custom" })
+            </td>
+        </tr>
+        <tr>
+            <td>Giới tính:</td>
+            <td>
+                <div class="radio-group">
+                    <label>@Html.RadioButtonFor(model => model.GioiTinh, "Nam", new { id = "GioiTinhNam" }) Nam</label>
+                    <label>@Html.RadioButtonFor(model => model.GioiTinh, "Nữ", new { id = "GioiTinhNu" }) Nữ</label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Chức vụ:</td>
+            <td>
+                @Html.DropDownListFor(model => model.ChucVu, new[]
+                {
+                    new SelectListItem { Value = "Trưởng phòng", Text = "Trưởng phòng" },
+                    new SelectListItem { Value = "Phó phòng", Text = "Phó phòng" },
+                    new SelectListItem { Value = "Nhân viên", Text = "Nhân viên" }
+                }, "Chọn chức vụ", new { @class = "form-control-custom" })
+            </td>
+        </tr>
+        <tr>
+            <td>Ngoại ngữ</td>
+            <td>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="NgoaiNgu" value="Anh" checked="@ngoaiNgu.Contains("Anh")" /> Anh</label>
+                    <label><input type="checkbox" name="NgoaiNgu" value="Pháp" checked="@ngoaiNgu.Contains("Pháp")" /> Pháp</label>
+                    <label><input type="checkbox" name="NgoaiNgu" value="Nga" checked="@ngoaiNgu.Contains("Nga")" /> Nga</label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="btn-container">
+                <button type="submit" class="btn-custom">LƯU</button>
+                <button type="submit" formaction="@Url.Action("Xoa", "NhapNhanVien")" formnovalidate class="btn-custom">XÓA</button>
+                <a href="@Url.Action("HienThi", "NhapNhanVien")" class="btn-custom">HIỂN THỊ</a>
+            </td>
+        </tr>
+    </table>
+}
