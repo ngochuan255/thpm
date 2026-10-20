@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Mã bệnh nhân: BN và đúng 2 chữ số, ví dụ BN01. -->
+    <xs:simpleType name="MaBNType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="BN[0-9]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Chuẩn hóa khoảng trắng; không nhận chuỗi rỗng hoặc toàn dấu cách. -->
+    <xs:simpleType name="ChuoiKhongRongType">
+        <xs:restriction base="xs:token">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Họ tên dài từ 3 đến 100 ký tự sau khi chuẩn hóa khoảng trắng. -->
+    <xs:simpleType name="HoTenType">
+        <xs:restriction base="xs:token">
+            <xs:minLength value="3"/>
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Số điện thoại có đúng 10 chữ số, bắt đầu bằng 0. -->
+    <xs:simpleType name="SoDienThoaiType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="0[0-9]{9}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="GioiTinhType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Nam"/>
+            <xs:enumeration value="Nữ"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Kiểm tra ngày tồn tại và định dạng yyyy-MM-dd. -->
+    <xs:simpleType name="NgayNhapVienType">
+        <xs:restriction base="xs:date">
+            <xs:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="BVDK">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Có ít nhất một khoa. -->
+                <xs:element name="Khoa" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="TenKhoa" type="ChuoiKhongRongType"/>
+                            <xs:element name="Phong" type="xs:positiveInteger"/>
+
+                            <!-- Mỗi khoa có ít nhất một bệnh nhân. -->
+                            <xs:element name="BenhNhan" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="HoTen" type="HoTenType"/>
+                                        <xs:element name="DiaChi" type="ChuoiKhongRongType"/>
+                                        <xs:element name="SoDienThoai" type="SoDienThoaiType"/>
+                                        <xs:element name="GioiTinh" type="GioiTinhType"/>
+                                        <xs:element name="NgayNhapVien" type="NgayNhapVienType"/>
+                                        <xs:element name="NgayDieuTri" type="xs:positiveInteger"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="MasoBN" type="MaBNType" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+
+        <!-- Mã bệnh nhân không trùng nhau trong toàn bộ bệnh viện. -->
+        <xs:unique name="MaBNDuyNhat">
+            <xs:selector xpath="Khoa/BenhNhan"/>
+            <xs:field xpath="@MasoBN"/>
+        </xs:unique>
+    </xs:element>
+</xs:schema>
