@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title - Kiểm tra thường xuyên 1</title>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")" />
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="main-header">KIỂM TRA THƯỜNG XUYÊN 1 - Họ và tên sinh viên</header>
+        <nav class="main-nav" aria-label="Điều hướng chính">
+            @Html.ActionLink("Hiển thị danh sách", "Index", "DailyForecast")
+            <span> | </span>
+            @Html.ActionLink("Nhập thông tin", "Create", "DailyForecast")
+        </nav>
+        <main class="main-content">@RenderBody()</main>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
