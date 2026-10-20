@@ -1,0 +1,23 @@
+@model DailyForecastMVC.Models.DailyForecast
+@{
+    ViewBag.Title = "Chi tiết dự báo";
+    var cityNames = new System.Collections.Generic.Dictionary<string, string>
+    {
+        { "001", "Hà Nội" }, { "002", "TP. Hồ Chí Minh" }, { "003", "Hải Phòng" }
+    };
+    var cityName = cityNames.ContainsKey(Model.CityID) ? cityNames[Model.CityID] : "Không xác định";
+}
+<section class="form-panel">
+    <h2>THÔNG TIN DỰ BÁO VỪA NHẬP</h2>
+    <table class="details-table">
+        <tr><th>@Html.DisplayNameFor(m => m.CityID)</th><td>@Model.CityID - @cityName</td></tr>
+        <tr><th>@Html.DisplayNameFor(m => m.ForecastDate)</th><td>@Model.ForecastDate.ToString("dd/MM/yyyy")</td></tr>
+        <tr><th>@Html.DisplayNameFor(m => m.MinTemperature)</th><td>@Model.MinTemperature.ToString("0.##")</td></tr>
+        <tr><th>@Html.DisplayNameFor(m => m.MaxTemperature)</th><td>@Model.MaxTemperature.ToString("0.##")</td></tr>
+        <tr><th>@Html.DisplayNameFor(m => m.Humidity)</th><td>@Model.Humidity %</td></tr>
+        <tr class="average-row"><th>@Html.DisplayNameFor(m => m.AvgTemperature)</th><td>@Model.AvgTemperature.ToString("0.##")</td></tr>
+    </table>
+    <p>@Html.ActionLink("Hiển thị danh sách", "Index", "DailyForecast", null, new { @class = "primary-button" })
+       @Html.ActionLink("Nhập thêm", "Create", "DailyForecast", null, new { @class = "secondary-link" })</p>
+    <p class="hint">Trang danh sách chỉ hiển thị ngày 20/10/2026 và Hà Nội theo Câu 3.</p>
+</section>
