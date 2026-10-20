@@ -1,0 +1,41 @@
+@model DailyForecastMVC.Models.DailyForecast
+@{
+    ViewBag.Title = "Nhập thông tin";
+}
+<section class="form-panel">
+    <h2>NHẬP THÔNG TIN DỰ BÁO THỜI TIẾT</h2>
+    @using (Html.BeginForm("Create", "DailyForecast", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "validation-error" })
+        <div class="field">
+            @Html.LabelFor(m => m.CityID)
+            @Html.DropDownListFor(m => m.CityID, (IEnumerable<SelectListItem>)ViewBag.CityOptions,
+                "-- Chọn thành phố --", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CityID, "", new { @class = "validation-error" })
+        </div>
+        <div class="field">
+            @Html.LabelFor(m => m.ForecastDate)
+            @Html.TextBoxFor(m => m.ForecastDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required" })
+            @Html.ValidationMessageFor(m => m.ForecastDate, "", new { @class = "validation-error" })
+        </div>
+        <div class="field">
+            @Html.LabelFor(m => m.MinTemperature)
+            @Html.TextBoxFor(m => m.MinTemperature, new { @class = "form-control", type = "number", step = "any", min = "-100", max = "100" })
+            @Html.ValidationMessageFor(m => m.MinTemperature, "", new { @class = "validation-error" })
+        </div>
+        <div class="field">
+            @Html.LabelFor(m => m.MaxTemperature)
+            @Html.TextBoxFor(m => m.MaxTemperature, new { @class = "form-control", type = "number", step = "any", min = "-100", max = "100" })
+            @Html.ValidationMessageFor(m => m.MaxTemperature, "", new { @class = "validation-error" })
+        </div>
+        <div class="field">
+            @Html.LabelFor(m => m.Humidity)
+            @Html.TextBoxFor(m => m.Humidity, new { @class = "form-control", type = "number", min = "0", max = "100" })
+            @Html.ValidationMessageFor(m => m.Humidity, "", new { @class = "validation-error" })
+        </div>
+        <p class="hint">Nhiệt độ trung bình được tính tự động từ nhiệt độ thấp nhất và cao nhất, không cần nhập.</p>
+        <button class="primary-button" type="submit">Lưu thông tin</button>
+        @Html.ActionLink("Về danh sách", "Index", "DailyForecast", null, new { @class = "secondary-link" })
+    }
+</section>
