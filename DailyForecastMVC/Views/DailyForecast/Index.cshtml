@@ -1,0 +1,40 @@
+@model DailyForecastMVC.ViewModels.ForecastIndexViewModel
+@{
+    ViewBag.Title = "Hiển thị danh sách";
+}
+<section class="forecast-section">
+    <h2>THÔNG TIN THỜI TIẾT NGÀY 20/10/2026</h2>
+    <div class="table-responsive">
+        <table class="forecast-table">
+            <thead><tr><th>Mã TP</th><th>Ngày dự báo</th><th>Nhiệt độ thấp nhất</th><th>Nhiệt độ cao nhất</th><th>Nhiệt độ trung bình</th><th>Độ ẩm</th></tr></thead>
+            <tbody>
+            @foreach (var item in Model.ForecastsOnOctober20)
+            {
+                <tr>
+                    <td>@item.CityID</td><td>@item.ForecastDate.ToString("dd/MM/yyyy")</td>
+                    <td>@item.MinTemperature.ToString("0.##")</td><td>@item.MaxTemperature.ToString("0.##")</td>
+                    <td>@item.AvgTemperature.ToString("0.##")</td><td>@item.Humidity</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</section>
+<section class="forecast-section">
+    <h2>THÔNG TIN THỜI TIẾT CỦA HÀ NỘI</h2>
+    <div class="table-responsive">
+        <table class="forecast-table">
+            <thead><tr><th>Mã TP</th><th>Ngày dự báo</th><th>Nhiệt độ thấp nhất</th><th>Nhiệt độ cao nhất</th><th>Nhiệt độ trung bình</th><th>Độ ẩm</th></tr></thead>
+            <tbody>
+            @foreach (var item in Model.HanoiForecasts)
+            {
+                <tr>
+                    <td>@item.CityID</td><td>@item.ForecastDate.ToString("dd/MM/yyyy")</td>
+                    <td>@item.MinTemperature.ToString("0.##")</td><td>@item.MaxTemperature.ToString("0.##")</td>
+                    <td>@item.AvgTemperature.ToString("0.##")</td><td>@item.Humidity</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</section>
